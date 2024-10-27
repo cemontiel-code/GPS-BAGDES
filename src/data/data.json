@@ -1,0 +1,33 @@
+[
+  {
+    "id": "0",
+    "pfp": "https://images.unsplash.com/photo-1711000142551-ca65827c57c3?w=250&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGUlMjBwaG90b3xlbnwwfHwwfHx8MA%3D%3D",
+    "lName": "montiel ",
+    "fName": "Carlos Eduardo",
+    "dni": "26.456.387",
+    "title": "tecnico de informatico",
+    "contInfo": {
+      "tlf": " +58 424 609 6483",
+      "email": "cemg98@gmail.com"
+    },
+    "medCond": [
+      {
+        "id": "0",
+        "condName": "Asma",
+        "condtreat": "Inhalador"
+      },
+      {
+        "id": "1",
+        "condName": "Alergias",
+        "condtreat": "Anti-alergicos"
+      }
+    ],
+    "emerCont": [
+      {
+        "id": "0",
+        "contName": "Gregory Gallardo",
+        "contTlf": "+58 414 691 3808"
+      }
+    ]
+  }
+]
