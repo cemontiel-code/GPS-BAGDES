@@ -1,30 +1,17 @@
-//import { useState ,useEffect } from "react";
+import { useParams } from "react-router-dom";
 import "../App.css";
 import data from "../data/data.json";
 import { AiFillPhone, AiFillMail } from "react-icons/ai";
 
 function Bagde() {
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-  /*const {employee, setEmployee} = useState(data[0]);
-
-  useEffect(() => {})
-    */
+  
+  const { id } = useParams();
+  const dataIndex = parseInt(id);
+ 
   return (
     <div className="App">
-      <div className="App-header">
-        <img
-          className="App-logo"
-          src={process.env.PUBLIC_URL + "/GPSLOGOTIPO SIN INFO@400X.png"}
-          alt="logo de GPS"
-        />
-      </div>
 
-      <div
-        className={window.innerWidth > 600 ? "App-body" : "App-mobile-body"}
-        aria-label="this content main body space"
-      >
+      <div className={window.innerWidth > 600 ? "App-body" : "App-mobile-body"}>
         <div
           className={
             window.innerWidth > 600 ? "container-l" : "container-mobile-l"
@@ -33,22 +20,21 @@ function Bagde() {
           <div className="pfp-container">
             <img
               className="pfp "
-              src={data[0].pfp}
-              crossOrigin="use-credentials"
-              alt={"foto de perfil" + data[0].fName + " " + data[0].lName}
+              src={data[dataIndex].pfp}
+             alt={'foto de perfil de '+data[dataIndex].fName + " " + data[dataIndex].lName} crossOrigin="anonymous"
             ></img>
           </div>
           <div className="text-container full-name">
             <p>
               <b>
-                {data[0].lName} ,{data[0].fName}{" "}
+                {data[dataIndex].lName} ,{data[dataIndex].fName}{" "}
               </b>
             </p>
           </div>
           <div className="text-container cargo">
-            <b>{data[0].title}</b>
+            <b>{data[dataIndex].title}</b>
           </div>
-          <div className="text-container dni">{"v-" + data[0].dni}</div>
+          <div className="text-container dni">{"v-" + data[dataIndex].dni}</div>
         </div>
         <div
           className={
@@ -64,8 +50,8 @@ function Bagde() {
                 <li className="card-content flex">
                   <div className="flex gap-5">
                     <AiFillPhone />
-                    <a href={"tel:" + data[0].contInfo.tlf}>
-                      {data[0].contInfo.tlf}
+                    <a href={"tel:" + data[dataIndex].contInfo.tlf}>
+                      {data[dataIndex].contInfo.tlf}
                     </a>
                   </div>
                 </li>
@@ -73,8 +59,8 @@ function Bagde() {
                 <li className="card-content flex flex-1">
                   <div className="flex gap-5">
                     <AiFillMail />
-                    <a href={"mailto:" + data[0].contInfo.email}>
-                      {data[0].contInfo.email}
+                    <a href={"mailto:" + data[dataIndex].contInfo.email}>
+                      {data[dataIndex].contInfo.email}
                     </a>
                   </div>
                 </li>
@@ -86,7 +72,7 @@ function Bagde() {
 
             <div className={window.innerWidth > 600 ? "card" : "card mobile"}>
               <div className={"grid grid-cols-1 md:grid-cols-3 card-content"}>
-                {data[0].medCond.map((info) => (
+                {data[dataIndex].medCond.map((info) => (
                   <div className="relative mb-12 px-3 lg:mb-0 text-left">
                     <div className="mb-2 flex justify-center">
                       <span className="text-primary">
@@ -116,9 +102,9 @@ function Bagde() {
             <div className="card-title">contactos de emergencia</div>
 
             <div className={window.innerWidth > 600 ? "card" : "card mobile"}>
-              {data[0].emerCont.map((emer, index) => (
+              {data[dataIndex].emerCont.map((emer, index) => (
                 <ul className="card-content">
-                  <li className="card-content ">
+                  <li className="card-content " key={index}>
                     <b>Nombre </b> {emer.contName}
                     <div className="flex gap-5">
                       <AiFillPhone />
